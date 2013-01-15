@@ -31,9 +31,11 @@
   </ImportGroup>
   <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="..\agg.props" />
   </ImportGroup>
   <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="..\agg.props" />
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup />
@@ -41,7 +43,7 @@
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
-      <AdditionalIncludeDirectories>../../include;../../font_win32_tt</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>../../../include;../../../agg2d;../../../font_win32_tt</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;_MBCS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
     <Link>
@@ -54,7 +56,7 @@
       <Optimization>MaxSpeed</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
-      <AdditionalIncludeDirectories>../../include;../../font_win32_tt</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>../../../include;../../../agg2d;../../../font_win32_tt</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;_MBCS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
     <Link>
@@ -64,19 +66,19 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\font_win32_tt\agg_font_win32_tt.cpp" />
-    <ClCompile Include="..\..\src\agg_arc.cpp" />
-    <ClCompile Include="..\..\src\agg_bezier_arc.cpp" />
-    <ClCompile Include="..\..\src\agg_curves.cpp" />
-    <ClCompile Include="..\..\src\agg_image_filters.cpp" />
-    <ClCompile Include="..\..\src\agg_rounded_rect.cpp" />
-    <ClCompile Include="..\..\src\agg_sqrt_tables.cpp" />
-    <ClCompile Include="..\..\src\agg_trans_affine.cpp" />
-    <ClCompile Include="..\..\src\agg_vcgen_stroke.cpp" />
-    <ClCompile Include="..\..\src\platform\win32\agg_platform_support.cpp" />
-    <ClCompile Include="..\..\src\platform\win32\agg_win32_bmp.cpp" />
-    <ClCompile Include="..\agg2d.cpp" />
-    <ClCompile Include="agg2d_demo.cpp" />
+    <ClCompile Include="..\..\..\font_win32_tt\agg_font_win32_tt.cpp" />
+    <ClCompile Include="..\..\..\src\agg_arc.cpp" />
+    <ClCompile Include="..\..\..\src\agg_bezier_arc.cpp" />
+    <ClCompile Include="..\..\..\src\agg_curves.cpp" />
+    <ClCompile Include="..\..\..\src\agg_image_filters.cpp" />
+    <ClCompile Include="..\..\..\src\agg_rounded_rect.cpp" />
+    <ClCompile Include="..\..\..\src\agg_sqrt_tables.cpp" />
+    <ClCompile Include="..\..\..\src\agg_trans_affine.cpp" />
+    <ClCompile Include="..\..\..\src\agg_vcgen_stroke.cpp" />
+    <ClCompile Include="..\..\..\src\platform\win32\agg_platform_support.cpp" />
+    <ClCompile Include="..\..\..\src\platform\win32\agg_win32_bmp.cpp" />
+    <ClCompile Include="..\..\..\agg2d\agg2d.cpp" />
+    <ClCompile Include="..\..\agg2d_demo.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
