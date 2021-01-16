@@ -334,7 +334,7 @@ public:
         m_graphics.ellipse(500, 280, 20, 40);
 
         m_graphics.fillColor(255, 255, 255);
-        m_graphics.blendMode(Agg2D::BlendContrast);
+        //m_graphics.blendMode(Agg2D::BlendContrast);
         m_graphics.ellipse(500+40, 280, 20, 40);
 
 
