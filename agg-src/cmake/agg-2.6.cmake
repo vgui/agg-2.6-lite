@@ -202,6 +202,7 @@ add_library(${AGG_LIB} ${AGG_SOURCES} ${AGG_HEADERS})
 target_link_libraries(${AGG_LIB} kernel32 user32 gdi32)
 
 include_directories(${AGG_ROOT_DIR}/include ${AGG_ROOT_DIR}/src)
+
 include_directories(${AGG_TRUETYPE_DIR})
 include_directories(${AGG_AGG2D_DIR})
 include_directories(${AGG_GPC_DIR})
@@ -210,8 +211,7 @@ add_library(gpc ${AGG_GPC_DIR}/gpc.c)
 add_library(agg2d ${AGG_ROOT_DIR}/agg2d/agg2d.cpp)
 target_link_libraries(agg2d agg-2.6)
 
-add_executable(agg2ddemo    ${AGG_ROOT_DIR}/myapp/agg2d_demo.cpp
-)
+add_executable(agg2ddemo    ${AGG_ROOT_DIR}/myapp/agg2d_demo.cpp)
 target_link_libraries(agg2ddemo agg2d agg-2.6)
 
 add_executable( agg2dapp

@@ -15,7 +15,7 @@ OPTION( AGG_USE_FREETYPE "Use Freetype library" OFF)
 OPTION( AGG_USE_EXPAT "Use Expat library" ON)
 OPTION( AGG_USE_SDL_PLATFORM "Use SDL as platform" ON)
 OPTION( AGG_USE_AGG2D "Agg 2D graphical context" ON)
-OPTION( AGG_USE_DEBUG "For debug version" OFF)
+OPTION( AGG_BUILD_EXAMPLES "For build examples" ON)
 
 set(AGG_LIB agg-2.6)
 set(AGG_ROOT_DIR ${CMAKE_CURRENT_SOURCE_DIR}/agg-src)
@@ -29,15 +29,13 @@ set(AGG_AGG2DDEMO_DIR ${AGG_ROOT_DIR}/myapp)
 set(AGG_GPC_DIR ${AGG_ROOT_DIR}/gpc)
 
 include(${AGG_CMAKE_DIR}/agg-2.6.cmake)
-add_subdirectory(${AGG_EXAMPLES_DIR})
+
+if(${AGG_BUILD_EXAMPLES})
+    add_subdirectory(${AGG_EXAMPLES_DIR})
+endif()
 
 ########Export agg-src/include directory##############
-message(STATUS "EXPORT SDSDSD")
+message(STATUS "Export AGG_INCLUDE_DIRS. Use it for include agg-2.6 directory.")
 get_property(__INCLUDEDIRS DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR} PROPERTY INCLUDE_DIRECTORIES)
 set(AGG_INCLUDE_DIRS ${__INCLUDEDIRS} PARENT_SCOPE)
-message(STATUS ${AGG_INCLUDE_DIRS})
-
-foreach(dir ${AGG_INCLUDE_DIRS})
-  message(STATUS "Agg-2.6 include directory: '${dir}'")
-endforeach()
 ######################################################
