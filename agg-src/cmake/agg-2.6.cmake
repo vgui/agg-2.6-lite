@@ -201,7 +201,7 @@ set(AGG_SOURCES
 add_library(${AGG_LIB} ${AGG_SOURCES} ${AGG_HEADERS})
 target_link_libraries(${AGG_LIB} kernel32 user32 gdi32)
 
-include_directories(${AGG_INCLUDE_DIR})
+include_directories(${AGG_ROOT_DIR}/include ${AGG_ROOT_DIR}/src)
 include_directories(${AGG_TRUETYPE_DIR})
 include_directories(${AGG_AGG2D_DIR})
 include_directories(${AGG_GPC_DIR})

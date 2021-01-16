@@ -20,8 +20,7 @@ OPTION( AGG_USE_DEBUG "For debug version" OFF)
 set(AGG_LIB agg-2.6)
 set(AGG_ROOT_DIR ${CMAKE_CURRENT_SOURCE_DIR}/agg-src)
 set(AGG_CMAKE_DIR ${AGG_ROOT_DIR}/cmake)
-set(AGG_SRC_DIR ${AGG_ROOT_DIR}/src)
-set(AGG_INCLUDE_DIR ${AGG_ROOT_DIR}/include)
+set(AGG_SRC_DIR ${AGG_ROOT_DIR}/src PARENT_SCOPE)
 set(AGG_EXAMPLES_DIR ${AGG_ROOT_DIR}/examples)
 set(AGG_FREETYPE_DIR ${AGG_ROOT_DIR}/font_freetype)
 set(AGG_TRUETYPE_DIR ${AGG_ROOT_DIR}/font_win32_tt)
@@ -32,4 +31,13 @@ set(AGG_GPC_DIR ${AGG_ROOT_DIR}/gpc)
 include(${AGG_CMAKE_DIR}/agg-2.6.cmake)
 add_subdirectory(${AGG_EXAMPLES_DIR})
 
+########Export agg-src/include directory##############
+message(STATUS "EXPORT SDSDSD")
+get_property(__INCLUDEDIRS DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR} PROPERTY INCLUDE_DIRECTORIES)
+set(AGG_INCLUDE_DIRS ${__INCLUDEDIRS} PARENT_SCOPE)
+message(STATUS ${AGG_INCLUDE_DIRS})
 
+foreach(dir ${AGG_INCLUDE_DIRS})
+  message(STATUS "Agg-2.6 include directory: '${dir}'")
+endforeach()
+######################################################

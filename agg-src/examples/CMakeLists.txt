@@ -460,7 +460,7 @@ IF( AGG_USE_AGG2D )
     )
 target_link_libraries( agg2_demo   mingw32  agg2d agg-2.6)
 
-ENDIF( agg_USE_AGG2D )
+ENDIF( AGG_USE_AGG2D )
 
 
 
