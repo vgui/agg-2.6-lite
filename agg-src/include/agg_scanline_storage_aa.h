@@ -137,8 +137,8 @@ namespace agg
 
         void swap(agg::scanline_cell_storage<T>& other)
         {
-            std::swap(other.m_cells, m_cells);
-            std::swap(other.m_extra_storage, m_extra_storage);
+            m_cells.swap(other.m_cells);
+            m_extra_storage.swap(other.m_extra_storage);
         }
 
     private:
@@ -521,9 +521,9 @@ namespace agg
 
         void swap(agg::scanline_storage_aa<T>& other)
         {
-            std::swap(other.m_covers, m_covers);
-            std::swap(other.m_spans, m_spans);
-            std::swap(other.m_scanlines, m_scanlines);
+            m_covers.swap(other.m_covers);
+            m_spans.swap(other.m_spans);
+            m_scanlines.swap(other.m_scanlines);
             std::swap(other.m_fake_span, m_fake_span);
             std::swap(other.m_fake_scanline, m_fake_scanline);
             std::swap(other.m_min_x, m_min_x);
