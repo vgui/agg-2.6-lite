@@ -17,6 +17,7 @@
 
 #include <cstddef>
 #include <cstring>
+#include <algorithm>
 #include "agg_basics.h"
 
 namespace agg
@@ -208,6 +209,13 @@ namespace agg
         void remove_all()         { m_size = 0; }
         void clear()              { m_size = 0; }
         void cut_at(unsigned num) { if(num < m_size) m_size = num; }
+
+        void swap(agg::pod_vector<T>& other)
+        {
+            std::swap(other.m_size, m_size);
+            std::swap(other.m_capacity, m_capacity);
+            std::swap(other.m_array, m_array);
+        }
 
     private:
         unsigned m_size;
@@ -497,6 +505,15 @@ namespace agg
         }
 
         const T* block(unsigned nb) const { return m_blocks[nb]; }
+
+        void swap(agg::pod_bvector<T, S>& other)
+        {
+            std::swap(other.m_size, m_size);
+            std::swap(other.m_num_blocks, m_num_blocks);
+            std::swap(other.m_max_blocks, m_max_blocks);
+            std::swap(other.m_blocks, m_blocks);
+            std::swap(other.m_block_ptr_inc, m_block_ptr_inc);
+        }
 
     private:
         void allocate_block(unsigned nb);

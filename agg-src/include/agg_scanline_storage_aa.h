@@ -27,6 +27,7 @@
 #include <cstring>
 #include <cstdlib>
 #include <limits>
+#include <algorithm>
 #include "agg_array.h"
 
 
@@ -132,6 +133,12 @@ namespace agg
             unsigned i = unsigned(-idx - 1);
             if(i >= m_extra_storage.size()) return 0;
             return m_extra_storage[i].ptr;
+        }
+
+        void swap(agg::scanline_cell_storage<T>& other)
+        {
+            std::swap(other.m_cells, m_cells);
+            std::swap(other.m_extra_storage, m_extra_storage);
         }
 
     private:
@@ -510,6 +517,20 @@ namespace agg
         const T* covers_by_index(int i) const
         {
             return m_covers[i];
+        }
+
+        void swap(agg::scanline_storage_aa<T>& other)
+        {
+            std::swap(other.m_covers, m_covers);
+            std::swap(other.m_spans, m_spans);
+            std::swap(other.m_scanlines, m_scanlines);
+            std::swap(other.m_fake_span, m_fake_span);
+            std::swap(other.m_fake_scanline, m_fake_scanline);
+            std::swap(other.m_min_x, m_min_x);
+            std::swap(other.m_min_y, m_min_y);
+            std::swap(other.m_max_x, m_max_x);
+            std::swap(other.m_max_y, m_max_y);
+            std::swap(other.m_cur_scanline, m_cur_scanline);
         }
 
     private:
