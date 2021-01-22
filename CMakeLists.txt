@@ -15,7 +15,7 @@ OPTION( AGG_USE_FREETYPE "Use Freetype library" OFF)
 OPTION( AGG_USE_EXPAT "Use Expat library" ON)
 OPTION( AGG_USE_SDL_PLATFORM "Use SDL as platform" ON)
 OPTION( AGG_USE_AGG2D "Agg 2D graphical context" ON)
-OPTION( AGG_BUILD_EXAMPLES "For build examples" ON)
+OPTION( AGG_BUILD_EXAMPLES "For build examples" OFF)
 
 set(AGG_LIB agg-2.6)
 set(AGG_ROOT_DIR ${CMAKE_CURRENT_SOURCE_DIR}/agg-src)
