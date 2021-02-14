@@ -111,6 +111,20 @@ namespace agg
         bool            add_kerning(unsigned first, unsigned second,
                                     double* x, double* y);
 
+        bool set_font(const char* signature)
+        {
+            int idx = find_font(signature);
+            if(idx >= 0)
+            {
+                m_cur_font = m_fonts[idx];
+                ::SelectObject(m_dc, m_cur_font);
+                m_num_kerning_pairs = 0;
+                return true;
+            }
+            else
+                return false;
+        }
+
     private:
         font_engine_win32_tt_base(const font_engine_win32_tt_base&);
         const font_engine_win32_tt_base& operator = (const font_engine_win32_tt_base&);
